@@ -1,14 +1,9 @@
 from numpy import zeros
 
+from .abstract_model import AbstractModel
 
-class BoardModel:
+
+class BoardModel(AbstractModel):
     def __init__(self, x_length, y_length):
-        self.__matrix = zeros((y_length, x_length))
-
-    @property
-    def data(self):
-        return self.__matrix
-
-    @data.setter
-    def data(self, data):
-        self.__matrix = data
+        super().__init__()
+        self._data = zeros((y_length, x_length))

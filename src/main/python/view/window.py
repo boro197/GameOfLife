@@ -10,22 +10,26 @@ class Window(AbstractWidget):
         super().__init__(parent=parent, x=x, y=y, width=width, height=height, color=color)
         self.__title = title
         self.__sidebar_height = 100
-        self.add_component(
-            Toolbar(parent=self, x=2, y=2, width=width-4, height=self.__sidebar_height - 4, color=PG_COLORS.get("gray40")))
-        self.add_component(
-            Board(parent=self, x=2, y=self.__sidebar_height, width=width - 4, height=height - self.__sidebar_height -2,
-                  color=PG_COLORS.get("black"), living_cell_color=PG_COLORS.get('white')))
+
+        board = Board(parent=self, x=2, y=self.__sidebar_height, width=width - 4,
+                      height=height - self.__sidebar_height - 2,
+                      color=PG_COLORS.get("black"), living_cell_color=PG_COLORS.get('white'))
+        toolbar = Toolbar(parent=self, x=2, y=2, width=width - 4, height=self.__sidebar_height - 4,
+                          color=PG_COLORS.get("gray40"))
+
+        toolbar.add_controllable_observer(board)
+
+        self.add_component(toolbar)
+        self.add_component(board)
 
     def show(self):
         init()
         screen = display.set_mode([self._width, self._height])
         display.set_caption(self.__title)
-
         while True:
             for e in event.get():
                 self.process_event(e)
             screen.fill(self._color)
-            draw.circle(screen, (0, 0, 255), (250, 250), 75)
             for child in self._children:
                 child.show()
             display.flip()

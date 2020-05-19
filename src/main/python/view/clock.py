@@ -1,3 +1,5 @@
+from pygame import draw, display
+
 from .abstract_widget import AbstractWidget, PG_COLORS
 
 
@@ -6,7 +8,5 @@ class Clock(AbstractWidget):
         super().__init__(parent=parent, x=x, y=y, width=width, height=height, color=color)
 
     def show(self):
-        pass
-
-    def process_event(self, new_event):
-        pass
+        screen = display.get_surface()
+        draw.rect(screen, self._color, (self._x, self._y, self._width, self._height))
