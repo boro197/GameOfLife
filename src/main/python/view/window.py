@@ -14,7 +14,7 @@ class Window(AbstractWidget):
 
         board = Board(parent=self, x=2, y=self.__sidebar_height, width=width - 4,
                       height=height - self.__sidebar_height - 2,
-                      color=PG_COLORS.get("black"), living_cell_color=PG_COLORS.get('white'))
+                      color=PG_COLORS.get("black"), living_cell_color=PG_COLORS.get('darkolivegreen1'))
         toolbar = Toolbar(parent=self, x=2, y=2, width=width - 4, height=self.__sidebar_height - 4,
                           color=PG_COLORS.get("gray40"))
 
