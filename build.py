@@ -7,7 +7,6 @@ use_plugin("python.flake8")
 use_plugin("python.coverage")
 use_plugin("python.distutils")
 
-
 name = "GameOfLife"
 default_task = "publish"
 

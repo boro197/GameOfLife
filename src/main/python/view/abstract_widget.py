@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 
-from pygame import constants as pg_constants
 from pygame.color import THECOLORS as PG_COLORS
+from pygame import constants as pg_constants
 
 RESOURCES_PATH = "C:\\Users\\tborowiak\\PycharmProjects\\GameOfLife\\src\\main\\resources\\"
+
 
 class AbstractWidget(ABC):
     def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get("white")):

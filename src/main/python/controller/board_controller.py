@@ -1,6 +1,6 @@
 from threading import Timer
 
-from numpy import zeros, random, sum
+from numpy import zeros, sum
 
 from .abstract_controller import AbstractController
 from .abstract_init_array_strategy import AbstractInitArrayStrategy

@@ -1,7 +1,7 @@
-from pygame import display, init, event, draw
+from pygame import display, init, event
 
-from .abstract_widget import AbstractWidget, PG_COLORS, pg_constants
 from .abstract_controllable_widget import AbstractControllableWidget
+from .abstract_widget import AbstractWidget, PG_COLORS, pg_constants
 from .board import Board
 from .toolbar import Toolbar
 
@@ -44,4 +44,3 @@ class Window(AbstractWidget):
         else:
             for child in self._children:
                 child.process_event(new_event)
-
