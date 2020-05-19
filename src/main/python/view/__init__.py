@@ -1,4 +1,4 @@
-from .abstract_widget import AbstractWidget, pg_colors
+from .abstract_widget import AbstractWidget, PG_COLORS
 from .window import Window
 
 all = ['Window']

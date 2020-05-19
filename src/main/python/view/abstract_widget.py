@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
-from pygame.color import THECOLORS as pg_colors
-from pygame import display
+
+from pygame import constants as pg_constants
+from pygame.color import THECOLORS as PG_COLORS
+
 
 class AbstractWidget(ABC):
-    def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=pg_colors.get("white")):
+    def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get("white")):
         self._x = x
         self._y = y
         self._width = width
@@ -20,16 +22,13 @@ class AbstractWidget(ABC):
     def add_component(self, child):
         self._children.append(child)
 
-    def get_screen(self):
-        if self._parent is None:
-            return display.get_surface()
-        else:
-            return self._parent.get_screen()
-
     @abstractmethod
     def show(self):
         pass
 
-    @abstractmethod
-    def process_event(self):
-        pass
+    def process_event(self, new_event):
+        if new_event.type == pg_constants.QUIT:
+            exit(0)
+        else:
+            for child in self._children:
+                child.process_event(new_event)
