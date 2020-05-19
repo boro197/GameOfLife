@@ -17,7 +17,7 @@ class BoardController:
         self.__model.data[1][2] = 1
         self.__model.data[2][2] = 1
 
-    def explotion(self):
+    def explosion(self):
         self.__model.data[55][51] = 1
         self.__model.data[56][50] = 1
         self.__model.data[56][51] = 1
@@ -37,7 +37,7 @@ class BoardController:
         self.__model.data[56][52] = 1
 
     def __init_model__(self):
-        self.explotion()
+        self.butterfly()
 
     def modify_matrix(self):
         old_matrix = self.__model.data

@@ -17,9 +17,10 @@ class Board(AbstractWidget):
 
     def show(self):
         screen = display.get_surface()
+        draw.rect(screen, self._color, (self._x, self._y, self._width, self._height))
+
         cell_x = self._x
         cell_y = self._y
-        draw.rect(screen, self._color, (self._x, self._y, self._width, self._height))
 
         for line in self.__model.data:
             for cell in line:

@@ -11,10 +11,10 @@ class Window(AbstractWidget):
         self.__title = title
         self.__sidebar_height = 100
         self.add_component(
-            Toolbar(parent=self, x=0, y=0, width=width, height=self.__sidebar_height, color=PG_COLORS.get("blue3")))
+            Toolbar(parent=self, x=2, y=2, width=width-4, height=self.__sidebar_height - 4, color=PG_COLORS.get("gray40")))
         self.add_component(
             Board(parent=self, x=2, y=self.__sidebar_height, width=width - 4, height=height - self.__sidebar_height -2,
-                  color=PG_COLORS.get("gray40"), living_cell_color=PG_COLORS.get('deepskyblue3')))
+                  color=PG_COLORS.get("black"), living_cell_color=PG_COLORS.get('white')))
 
     def show(self):
         init()
