@@ -46,7 +46,8 @@ class BoardController(AbstractController):
             for i in range(0, len(old_matrix)):
                 for j in range(0, len(old_matrix[0])):
                     region = old_matrix[max(0, i - 1): i + 2, max(0, j - 1): j + 2]
-                    neighbours = sum(region)
+                    neighbours = sum(region) - old_matrix[i][j]
+
                     if neighbours == 3:
                         new_matrix[i][j] = 1
                     elif neighbours > 4 or neighbours < 2:

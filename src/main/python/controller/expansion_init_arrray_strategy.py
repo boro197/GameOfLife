@@ -11,4 +11,7 @@ class ExpansionInitArrayStrategy(AbstractInitArrayStrategy):
         input_matrix[1][1] = 1
         input_matrix[1][2] = 1
         input_matrix[2][2] = 1
+        input_matrix[3][2] = 1
+        input_matrix[2][1] = 1
+        input_matrix[3][1] = 1
         return input_matrix
