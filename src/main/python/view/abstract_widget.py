@@ -29,8 +29,5 @@ class AbstractWidget(ABC):
         pass
 
     def process_event(self, new_event):
-        if new_event.type == pg_constants.QUIT:
-            exit(0)
-        else:
-            for child in self._children:
-                child.process_event(new_event)
+        for child in self._children:
+            child.process_event(new_event)

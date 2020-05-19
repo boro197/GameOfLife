@@ -1,6 +1,7 @@
 from pygame import display, init, event, draw
 
-from .abstract_widget import AbstractWidget, PG_COLORS
+from .abstract_widget import AbstractWidget, PG_COLORS, pg_constants
+from .abstract_controllable_widget import AbstractControllableWidget
 from .board import Board
 from .toolbar import Toolbar
 
@@ -33,3 +34,14 @@ class Window(AbstractWidget):
             for child in self._children:
                 child.show()
             display.flip()
+
+    def process_event(self, new_event):
+        if new_event.type == pg_constants.QUIT:
+            for child in self._children:
+                if isinstance(child, AbstractControllableWidget):
+                    child.stop()
+            exit(0)
+        else:
+            for child in self._children:
+                child.process_event(new_event)
+
