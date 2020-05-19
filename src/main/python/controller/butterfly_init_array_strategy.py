@@ -5,7 +5,7 @@ from .abstract_init_array_strategy import AbstractInitArrayStrategy
 
 class ButterflyInitArrayStrategy(AbstractInitArrayStrategy):
     def __init__(self):
-        super().__init__("Butterfly")
+        super().__init__('Butterfly')
 
     def __call__(self, input_matrix):
         x_length = floor(len(input_matrix) / 2)

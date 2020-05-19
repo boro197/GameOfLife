@@ -5,7 +5,7 @@ from .abstract_init_array_strategy import AbstractInitArrayStrategy
 
 class ExplosionInitArrayStrategy(AbstractInitArrayStrategy):
     def __init__(self):
-        super().__init__("Explosion")
+        super().__init__('Explosion')
 
     def __call__(self, input_matrix):
         x_length = floor(len(input_matrix) / 2)

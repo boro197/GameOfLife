@@ -11,16 +11,16 @@ from .abstract_widget import PG_COLORS, pg_constants
 
 
 class Board(AbstractControllableWidget):
-    def __init__(self, parent=None, x=0, y=0, width=0, height=0, cell_size=5, color=PG_COLORS.get("black"),
-                 living_cell_color=PG_COLORS.get("white")):
+    def __init__(self, parent=None, x=0, y=0, width=0, height=0, cell_size=5, color=PG_COLORS.get('black'),
+                 living_cell_color=PG_COLORS.get('white')):
         super().__init__(parent=parent, x=x, y=y, width=width, height=height, color=color)
         self.__cell_size = cell_size
         self.__living_cell_color = living_cell_color
         self.__model = BoardModel(floor(self._width / cell_size), floor(self._height / cell_size))
         self.__controller = BoardController(self.__model, 0.01)
         self.__welcome_message = 'Press play to start !'
-        self.__current_strategy_text = "Current strategy is: "
-        self.__instruction_text = "Press number from 1 to 4 to change strategy."
+        self.__current_strategy_text = 'Current strategy is: '
+        self.__instruction_text = 'Press number from 1 to 4 to change strategy.'
 
     def show(self):
         screen = display.get_surface()
@@ -47,9 +47,9 @@ class Board(AbstractControllableWidget):
 
             current_strategy_text = self.__current_strategy_text + self.__controller.strategy
 
-            welcome_text = font.render(self.__welcome_message, True, PG_COLORS.get("white"))
-            current_strategy = font.render(current_strategy_text, True, PG_COLORS.get("white"))
-            instruction_text = font.render(self.__instruction_text, True, PG_COLORS.get("white"))
+            welcome_text = font.render(self.__welcome_message, True, PG_COLORS.get('white'))
+            current_strategy = font.render(current_strategy_text, True, PG_COLORS.get('white'))
+            instruction_text = font.render(self.__instruction_text, True, PG_COLORS.get('white'))
 
             text_width, text_height = font.size(self.__welcome_message)
             cs_text_width, cs_text_height = font.size(current_strategy_text)

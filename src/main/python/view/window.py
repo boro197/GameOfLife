@@ -7,16 +7,16 @@ from .toolbar import Toolbar
 
 
 class Window(AbstractWidget):
-    def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get("white"), title="Main Window"):
+    def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get('white'), title='Main Window'):
         super().__init__(parent=parent, x=x, y=y, width=width, height=height, color=color)
         self.__title = title
         self.__sidebar_height = 100
 
         board = Board(parent=self, x=2, y=self.__sidebar_height, width=width - 4,
                       height=height - self.__sidebar_height - 2,
-                      color=PG_COLORS.get("black"), living_cell_color=PG_COLORS.get('darkolivegreen1'))
+                      color=PG_COLORS.get('black'), living_cell_color=PG_COLORS.get('darkolivegreen1'))
         toolbar = Toolbar(parent=self, x=2, y=2, width=width - 4, height=self.__sidebar_height - 4,
-                          color=PG_COLORS.get("gray40"))
+                          color=PG_COLORS.get('gray40'))
 
         toolbar.add_controllable_observer(board)
 

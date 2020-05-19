@@ -7,7 +7,7 @@ from .abstract_widget import AbstractWidget, PG_COLORS, pg_constants, RESOURCES_
 
 
 class Button(AbstractWidget):
-    def __init__(self, on_click, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get("white"), icon_path=""):
+    def __init__(self, on_click, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get('white'), icon_path=''):
         super().__init__(parent=parent, x=x, y=y, width=width, height=height, color=color)
         self.__on_click = on_click
         self.__icon_path = RESOURCES_PATH + icon_path
@@ -22,6 +22,8 @@ class Button(AbstractWidget):
                 icon.fill((255, 255, 255, 128), None, pg_constants.BLEND_RGBA_MULT)
             screen.blit(icon, (self._x, self._y))
         else:
+            if self.__icon_path is not "":
+                print("Path {0} does not exist !".format(self.__icon_path))
             draw.rect(screen, self._color, (self._x, self._y, self._width, self._height))
 
     def process_event(self, new_event):

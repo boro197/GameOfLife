@@ -3,11 +3,13 @@ from abc import ABC, abstractmethod
 from pygame.color import THECOLORS as PG_COLORS
 from pygame import constants as pg_constants
 
-RESOURCES_PATH = "C:\\Users\\tborowiak\\PycharmProjects\\GameOfLife\\src\\main\\resources\\"
+from os import path
+
+RESOURCES_PATH = path.dirname(path.abspath(__file__)) + '\\..\\..\\resources\\'
 
 
 class AbstractWidget(ABC):
-    def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get("white")):
+    def __init__(self, parent=None, x=0, y=0, width=0, height=0, color=PG_COLORS.get('white')):
         self._x = x
         self._y = y
         self._width = width

@@ -33,7 +33,7 @@ class BoardController(AbstractController):
         if isinstance(strategy, AbstractInitArrayStrategy):
             self.__init_strategy = strategy
         else:
-            raise ValueError("Incorrect strategy type")
+            raise ValueError('Incorrect strategy type')
 
     def init_model(self):
         self._model.data = zeros((len(self._model.data), len(self._model.data[0])))
