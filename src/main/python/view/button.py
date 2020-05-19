@@ -22,7 +22,7 @@ class Button(AbstractWidget):
                 icon.fill((255, 255, 255, 128), None, pg_constants.BLEND_RGBA_MULT)
             screen.blit(icon, (self._x, self._y))
         else:
-            if self.__icon_path is not "":
+            if self.__icon_path != "":
                 print("Path {0} does not exist !".format(self.__icon_path))
             draw.rect(screen, self._color, (self._x, self._y, self._width, self._height))
 
